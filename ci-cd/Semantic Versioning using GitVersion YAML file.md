@@ -61,8 +61,6 @@ branches:
 ### Add `GitVersion.yml` to the root path of your project
 By placing the `GitVersion.yml` file in the root of your solution (in .NET) or main module (in Java/Kotlin), the `gitversion` CLI will use it for all sub-projects or sub-modules.
 
-#### In .NET:
-
 #### In Java/Kotlin:
 You can find the sample projects in my repo at GitHub:
 - [Check JavaCodeLab project](https://github.com/SamParklcf/JavaCodeLab/tree/feature/setup)
