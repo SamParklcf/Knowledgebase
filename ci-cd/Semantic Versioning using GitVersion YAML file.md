@@ -129,6 +129,19 @@ tasks.withType<Jar>().configureEach {
 ```
 
 **Note:** To ensure the `gitVersionOutputJSon` task is runnable, you need to install `GitVersion CLI` on your operating system and set it as an `environment variable`.
+#### Install `GitVersion CLI`
+There are several ways To installing `GitVersion CLI`:
+- The first approach is to use a third party installer like: `dotnet tool install`, `brew install`, `choco install`, or install it via docker like `docker run`. if you are interested in doing in this way please refer to [Installation guide from gitversion.net](https://gitversion.net/docs/usage/cli/installation) and follow the steps.
+- However there is also a direct approach you can use: 
+  - First, download the latest `GitVersion CLI` from [here](https://github.com/GitTools/GitVersion/releases) based on your operating system. at the moment the latest version is `6.0.5`
+  - Second, extract the file into a directory and do not move the location ever.
+  ![GitVersion CLI](/resources/ci-cd/GitVersionCLILocation.png)
+  - Third, Make an environment variable for it:
+  ```sh
+  export PATH=$PATH:/home/sam/Public/gitversion-linux-x64-6.0.5
+  ```
+  -Now, you can run `GitVersion -version` to verify and check your `GitVersion CLI` installation in terminal. you should see something like this: (if not, restart your pc to apply the changes)
+  ![GitVersion CLI Verification](/resources/ci-cd/GitVersionCLIVerification.png)
 
 This block of code should be placed between your { `plugins`, `repositories`, ... } and { `dependencies`, ...}.
 
