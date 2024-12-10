@@ -7,3 +7,4 @@
     - [Common](/languages/common/README.md)
         - [Compiler](/languages/common/Compiler.md)
         - [Project Structure](/languages/common/Project%20Structure.md)
+    - [Basics](/languages/basics/README.md)
