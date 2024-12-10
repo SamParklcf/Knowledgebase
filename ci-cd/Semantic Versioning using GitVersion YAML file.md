@@ -362,13 +362,13 @@ jobs:
           fetch-depth: 0
 
       - name: Install GitVersion 6.x #https://github.com/GitTools/actions/blob/main/docs/examples/github/gitversion/setup.md
-        uses: gittools/actions/gitversion/setup@v3.0.3
+        uses: gittools/actions/gitversion/setup@v3.0.4
         with:
-          versionSpec: '6.x'
+          versionSpec: '6.0.x'
           preferLatestVersion: true
 
       - name: Determine Version #https://github.com/GitTools/actions/blob/main/docs/examples/github/gitversion/execute.md
-        uses: gittools/actions/gitversion/execute@v3.0.3
+        uses: gittools/actions/gitversion/execute@v3.0.4
         with:
           useConfigFile: true
           updateAssemblyInfo: true
