@@ -2,31 +2,18 @@
 
 ![Compilers in C#, Java, and Kotlin](/resources/languages/common/CompilerWithDotNETJavaAndKotlin.png)
 
-A compiler is a special program that translates code written in a high-level programming language (like C#, Java, or Kotlin) into a lower-level language that the computer can understand and execute. Here's a detailed breakdown of how a compiler works:
+A compiler is a special program that translates code written in a high-level programming language (like C#, Java, or Kotlin) into a lower-level language that the computer can understand and execute.
 
 ### Key Functions of a Compiler:
-- **Lexical Analysis:** The compiler reads the source code and converts it into tokens, which are the basic building blocks of the language (e.g., keywords, identifiers, operators).
+1. **Lexical Analysis:** The source code is broken down into tokens (keywords, variables, operators, etc.).
+2. **Syntax Analysis:** The compiler checks the code against the language's grammar rules to ensure it is syntactically correct.
+3. **Semantic Analysis:** It checks the meaning of the statements, ensuring that the operations are logically valid.
+4. **Optimization:** The compiler improves the performance of the code, such as reducing execution time or memory usage.
+5. **Code Generation:** Finally, the compiler generates the machine code or intermediate code.
 
-- **Syntax Analysis:** The compiler checks the tokens against the grammar rules of the language to ensure the code is syntactically correct. This phase generates a syntax tree.
+The file produced by a compiler is often called a **binary file** or an **executable file**. Whereas you can read a source code and understand it, binary or executable files are not meant to be read by a human person. Only your computer can make sense of it.
 
-- **Semantic Analysis:** The compiler verifies the meaning of the code. It checks for logical errors, type checking, and ensures that the code adheres to the language's semantics.
-
-- **Intermediate Code Generation:** The compiler generates an intermediate representation of the source code, which is often machine-independent.
-
-- **Optimization:** The compiler optimizes the intermediate code to improve performance and efficiency. This can include removing redundant code and improving loop performance.
-
-- **Code Generation:** The compiler converts the intermediate code into machine code or bytecode, which can be executed by the computer's hardware or a virtual machine.
-
-- **Code Linking:** The compiler links the generated code with any required libraries and dependencies to produce the final executable program.
-
-### Types of Compilers:
-- **Single-Pass Compiler:** Processes the source code in one pass, typically faster but less powerful for optimization.
-
-- **Multi-Pass Compiler:** Processes the source code in multiple passes, allowing for more advanced optimizations.
-
-- **Just-In-Time (JIT) Compiler:** Converts intermediate code to machine code at runtime, used in environments like Java (JVM) and .NET (CLR).
-
-- **Ahead-Of-Time (AOT) Compiler:** Compiles code to machine code before execution, providing faster startup times and predictable performance.
+In Java, the compiled code is known as **bytecode**, which runs on the **Java Virtual Machine (JVM)**. In .NET, the compiled code is called **Intermediate Language (IL)** code, which runs on the **Common Language Runtime (CLR)**.
 
 ### Example Compilers:
 - **C# Compiler (Roslyn):** Compiles C# code into Intermediate Language (IL) code for the .NET framework.
@@ -208,3 +195,117 @@ Ahead-Of-Time (AOT) compilation is a technique where the source code is compiled
 | **Other Development Tools**           | Visual Studio, MSBuild, NuGet                  | IntelliJ IDEA, Gradle, Maven                            | IntelliJ IDEA, Gradle, Maven                             | [Visual Studio](https://visualstudio.microsoft.com/), [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild), [NuGet](https://www.nuget.org/), [IntelliJ IDEA](https://www.jetbrains.com/idea/), [Gradle](https://gradle.org/), [Maven](https://maven.apache.org/) |
 
 REPL: Stands for Read-Eval-Print Loop
+
+### Compile & Run a simple 'Hello World' application
+In this example we explain how a simple program can be ran in C#, Java, and Kotlin:
+
+let's consider this simple piece of code:
+
+#### In .NET
+```cs
+public class ConsoleApp
+{
+    static void Main(string[] args)
+    {
+        System.Console.WriteLine("Hello, C# World!");
+    }
+}
+```
+
+- Save this code in a file called: `ConsoleApp.cs`.
+- Run `csc ConsoleApp.cs` command in `Developer Command Prompt` installed with Visual Studio:
+    - This command will compile the source file and make an executable `ConsoleApp.exe` file for you.
+- Now, you can simple type `ConsoleApp.exe` in the command prompt to run the program. 
+
+The result would be:
+```
+C:\Users\SamPa\Desktop\Test>csc ConsoleApp.cs
+Microsoft (R) Visual C# Compiler version 4.12.0-3.24572.7 (dfa7fc6b)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+C:\Users\SamPa\Desktop\Test>ConsoleApp.exe
+Hello, C# World!
+```
+
+#### In Java
+```java
+public class ConsoleApp {
+
+    public static void main(String... args) {
+        System.out.println("Hello, Java World!");
+    }
+}
+```
+
+- Save this code in a file called: `ConsoleApp.java`.
+- Compile and Run source file with (JDK v11 and later):
+    - `Java ConsoleApp.java` will compile and run the program instantly (JDK v11 and later).
+    - To make the `.class` file: simply run `Javac ConsoleApp.java` will make you the `ConsoleApp.class` file.
+
+The result would be:
+```
+PS C:\Users\SamPa\Desktop\Test> java ConsoleApp.java
+Hello, Java World!
+```
+
+#### In Kotlin
+```kotlin
+fun main() {
+    println("Hello, Kotlin World!")
+}
+```
+
+- Save this code in a file called: `ConsoleApp.kt`.
+- Run `kotlinc ConsoleApp.kt` command to compile the source code.
+- Run `kotlin ConsoleAppKt.class` command to run the program.
+
+The result would be:
+```
+PS C:\Users\SamPa\Desktop\Test> kotlinc ConsoleApp.kt
+PS C:\Users\SamPa\Desktop\Test> kotlin ConsoleAppKT.class
+Hello, Kotlin World!
+```
+
+#### As a result:
+| Language | Compiler          | Virtual Machine     |
+|----------|-------------------|---------------------|
+| C#       | `csc`             | CLR                 |
+| Java     | `javac`           | JVM (Java Virtual Machine) |
+| Kotlin   | `kotlinc`         | JVM (Java Virtual Machine) |
+
+
+```
+| Command | Purpose                    |
+|---------|----------------------------|
+| dotnet  | Command for CLR            |
+| Java    | Command for JVM            |
+```
+```
+PS C:\Users\SamPa\Desktop\Test> dotnet --version
+9.0.101
+```
+```
+PS C:\Users\SamPa\Desktop\Test> java -version
+openjdk version "23.0.1" 2024-10-15
+OpenJDK Runtime Environment (build 23.0.1+11-39)
+OpenJDK 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
+```
+
+## .NET Platform Evolution
+
+- [The history of C#](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history)
+- [.NET Framework versions and dependencies](https://learn.microsoft.com/en-us/dotnet/framework/migration-guide/versions-and-dependencies)
+- [C# language versioning](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning)
+- [.NET Standard version](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-1-0#net-standard-versions)
+- [Versions of .NET](https://versionsof.net/)
+
+## Java Platform Evolution
+
+- [JDK Releases](https://www.java.com/releases/)
+- [Java Archive](https://www.oracle.com/java/technologies/downloads/archive/)
+- [The Java Version Almanac](https://javaalmanac.io/)
+
+## Kotlin Platform Evolution
+
+- [Release details](https://kotlinlang.org/docs/releases.html#release-details)
